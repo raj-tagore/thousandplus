@@ -112,7 +112,7 @@
     </div>
     @php
         $name = $allUsers->firstWhere('user_id', $totalTally['user_id'])->name ?? 'Enter name here';
-        $message = "TOT School Report for: Day ". $difference ."\n"."Date: ".date('d/m/Y')."\nName: ".$name."\n";
+        $message = "1000+ Report for: Day ". $difference ."\n"."Date: ".date('d/m/Y')."\nName: ".$name."\n";
         foreach($columns as $key => $label) {
             $today = $todaysTally[$key] ?? 'N/A';
             $total = $totalTally[$key] ?? 'N/A';
