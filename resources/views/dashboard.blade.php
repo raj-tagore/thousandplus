@@ -28,22 +28,22 @@
         </div>
         
         <div class="col-lg-4">
-            <h5>Top 5 Users by Meetings</h5>
+            <h5>Top 5 Users by Prospects</h5>
             <table class="table border">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
-                        <th scope="col">Meetings</th>
+                        <th scope="col">Prospects</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @php $topCalls = $allUsers->sortByDesc('meetings'); @endphp
+                    @php $topCalls = $allUsers->sortByDesc('prospects'); @endphp
                     @foreach($topCalls->take(5) as $user)
                         <tr>
                             <th scope="row">{{ $loop->iteration }}</th>
                             <td>{{ $user->name }}</td>
-                            <td>{{ $user->meetings }}</td>
+                            <td>{{ $user->prospects }}</td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -51,22 +51,22 @@
         </div>
         
         <div class="col-lg-4">
-            <h5>Top 5 Users by Premium</h5>
+            <h5>Top 5 Users by Code</h5>
             <table class="table border">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
-                        <th scope="col">Premium</th>
+                        <th scope="col">Coded</th>
                     </tr>
                 </thead>
                 <tbody> 
-                    @php $topCalls = $allUsers->sortByDesc('premium'); @endphp
+                    @php $topCalls = $allUsers->sortByDesc('code'); @endphp
                     @foreach($topCalls->take(5) as $user)
                         <tr>
                             <th scope="row">{{ $loop->iteration }}</th>
                             <td>{{ $user->name }}</td>
-                            <td>{{ $user->premium }}</td>
+                            <td>{{ $user->code }}</td>
                         </tr>
                     @endforeach
                 </tbody>

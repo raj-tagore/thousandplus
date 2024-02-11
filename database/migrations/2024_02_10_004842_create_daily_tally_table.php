@@ -16,15 +16,11 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->date('date');
             $table->integer('calls')->default(0);
-            $table->integer('leads')->default(0);
-            $table->integer('phone_calls')->default(0);
-            $table->integer('appointments')->default(0);
-            $table->integer('meetings')->default(0);
-            $table->integer('letters')->default(0);
-            $table->integer('follow_ups')->default(0);
-            $table->integer('proposals')->default(0);
-            $table->integer('policies')->default(0);
-            $table->integer('premium')->default(0);
+            $table->integer('prospects')->default(0);
+            $table->integer('docs')->default(0);
+            $table->integer('urn')->default(0);
+            $table->integer('exam')->default(0);
+            $table->integer('code')->default(0);
 
             // Foreign key constraint (adjust based on your actual users table and requirements)
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

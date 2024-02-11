@@ -4,52 +4,32 @@ return [
     'columns' => [
         'calls' => [
             'type' => 'number',
-            'label' => 'Cold Calls',
+            'label' => 'Calls',
             'required' => true,
         ],
-        'leads' => [
+        'prospects' => [
             'type' => 'number',
-            'label' => 'Leads',
+            'label' => 'Prospects',
             'required' => true,
         ],
-        'phone_calls' => [
+        'docs' => [
             'type' => 'number',
-            'label' => 'Phone Calls Made',
+            'label' => 'Docs Collected',
             'required' => true,
         ],
-        'appointments' => [
+        'urn' => [
             'type' => 'number',
-            'label' => 'Appointments',
+            'label' => 'URN Generated',
             'required' => true,
         ],
-        'meetings' => [
+        'exam' => [
             'type' => 'number',
-            'label' => 'First Meetings',
+            'label' => 'Exam Passed',
             'required' => true,
         ],
-        'letters' => [
+        'code' => [
             'type' => 'number',
-            'label' => 'Follow Up Letters Sent',
-            'required' => true,
-        ],
-        'follow_ups' => [
-            'type' => 'number',
-            'label' => 'Follow Ups',
-            'required' => true,
-        ],
-        'proposals' => [
-            'type' => 'number',
-            'label' => 'Brahmastra Proposals Given',
-            'required' => true,
-        ],
-        'policies' => [
-            'type' => 'number',
-            'label' => 'Policies Sold',
-            'required' => true,
-        ],
-        'premium' => [
-            'type' => 'number',
-            'label' => 'Premium',
+            'label' => 'Coded',
             'required' => true,
         ],
     ],

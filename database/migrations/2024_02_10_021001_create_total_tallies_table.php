@@ -15,15 +15,11 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->integer('calls')->default(0);
-            $table->integer('leads')->default(0);
-            $table->integer('phone_calls')->default(0);
-            $table->integer('appointments')->default(0);
-            $table->integer('meetings')->default(0);
-            $table->integer('letters')->default(0);
-            $table->integer('follow_ups')->default(0);
-            $table->integer('proposals')->default(0);
-            $table->integer('policies')->default(0);
-            $table->integer('premium')->default(0);
+            $table->integer('prospects')->default(0);
+            $table->integer('docs')->default(0);
+            $table->integer('urn')->default(0);
+            $table->integer('exam')->default(0);
+            $table->integer('code')->default(0);
             
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });

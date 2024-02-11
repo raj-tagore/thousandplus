@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>TOT School</title>
+        <title>1000+</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -35,7 +35,7 @@
                 <div class="mt-16">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
                         <div>
-                            <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Welcome to TOT School</h2>
+                            <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Welcome to 1000+ </h2>
                             <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Register if you are a new user. Login if you have been here before</p>
                         </div>
                     </div>
