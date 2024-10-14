@@ -19,7 +19,7 @@ class DailyTally extends Model
         $this->fillable = array_merge($fields1, $fields2);
     }
 
-    public function user_id()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }

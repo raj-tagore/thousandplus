@@ -4,32 +4,27 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
-use App\Models\DailyTally; // Assuming you have this model
+use App\Models\DailyTally; 
 use App\Models\TotalTally;
 use Carbon\Carbon; // For handling date operations
 use Illuminate\Support\Facades\Log;
 
- 
+
 class TallyController extends Controller
 {   
     public function index(Request $request) {
-        $user_id = auth()->id(); // Assuming the user is authenticated
+        $user_id = auth()->id(); 
         $date = Carbon::today()->toDateString(); 
         if (DailyTally::where('date', $date)->where('user_id', $user_id)->exists()) {
-            return view('tally', ['submitted' => true]);
+            $todaysTally = DailyTally::where('date', $date)->where('user_id', $user_id)->first();
+            return view('tally', ['submitted' => true, 'todaysTally' => $todaysTally]);
         } else {
             return view('tally', ['submitted' => false]);
         }
     }
-    /**
-     * Handle the submission of the DailyTally form.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */ 
+    
     public function store(Request $request)
     {   
-
         $fields = config('columns.columns', []);
 
         $validationRules = [];
@@ -46,22 +41,11 @@ class TallyController extends Controller
 
         // Check if an entry exists for the given date
         if (DailyTally::where('date', $validatedData['date'])->where('user_id', $validatedData['user_id'])->exists()) {
-            return redirect()->route('tally');
+            $existingEntry = DailyTally::where('date', $validatedData['date'])->where('user_id', $validatedData['user_id'])->first();
+            $existingEntry->update($validatedData);
+            return redirect()->route('tally'); 
         } else {
             $newEntry = DailyTally::create($validatedData);
-            if (TotalTally::where('user_id', $validatedData['user_id'])->exists()) {
-                $existingValues = TotalTally::where('user_id', $validatedData['user_id'])->first()->toArray();
-                $columns = config('columns.columns');
-                foreach ($columns as $column => $data) {
-                    $existingValues[$column] = $existingValues[$column] + $validatedData[$column];
-                }
-                TotalTally::where('user_id', $validatedData['user_id'])->update($existingValues);
-            }
-            else {
-                $newTotal = TotalTally::create($validatedData);
-                $newTotal->setCreatedAt(Carbon::now());
-                $newTotal->save();
-            }
             return redirect()->route('tally');
         }
     }
